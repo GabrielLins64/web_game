@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  web-game-db:
+    container_name: web-game-db
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - web_game_network
+
+  web-game-server:
+    container_name: web-game-server
+    build: .
+    env_file: .env
+    environment:
+      - WP_PORT=${WP_PORT}
+      - DB_CONN_URI=${DB_CONN_URI}
+    ports:
+      - ${WP_PORT}:${WP_PORT}
+    external_links:
+      - web-game-db
+    depends_on:
+      - web-game-db
+    networks:
+      - web_game_network
+
+networks:
+  web_game_network:
+    name: web_game_network

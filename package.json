@@ -1,0 +1,25 @@
+{
+  "name": "web_game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch src --ext ts --exec ts-node --ignore node_modules src/app.ts",
+    "start": "ts-node dist/app.js",
+    "build": "tsc -p ."
+  },
+  "author": "Gabriel Furtado Lins Melo",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.2.5",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
